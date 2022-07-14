@@ -1,0 +1,243 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython.min.js">
+    </script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/brython@3.10.5/brython_stdlib.js">
+    </script>
+</head>
+
+<body onload="brython()">
+    <div class="inner">
+         <div class ="item">
+        block 1
+        </div>
+        <button id="btn">1</button>
+        <div id="input" class ="container">
+            <input type="text" />
+        </div>
+        <div id="input" class ="container">
+            <input type="text" />
+        </div>
+    </div>
+    
+   
+    <script type="text/python">
+        from browser import *
+
+        def decode(nums, coding_dict):
+            list_with_symbols = list(nums)
+
+            rev_dict = dict(zip(coding_dict.values(), coding_dict.keys()))
+
+            for i in range(len(list_with_symbols)):
+                list_with_symbols[i] = str(rev_dict[list_with_symbols[i]])
+
+            return ''.join(sym for sym in list_with_symbols)
+
+
+
+
+        def code_string(input_str, coding_dict):
+
+
+            list_with_symbols = list(input_str)
+
+            for i in range(len(list_with_symbols)):
+                list_with_symbols[i] = str(coding_dict[list_with_symbols[i]])
+
+            return ''.join(sym for sym in list_with_symbols)
+        dict_with_coding = {
+                            'а' : '!',
+                            'б' : ']',
+                            'в' : 'w',
+                            'г' : '8',
+                            'д': '0',
+                            'е': 'l',
+                            'ё': '_',
+                            'ж': 'я',
+                            'з': '2',
+                            'и': '%',
+                            'й': '=',
+                            'к': 'f',
+                            'л': '@',
+                            'м': '1',
+                            'н': '^',
+                            'о': '4',
+                            'п' : '/',
+                            'р' : ';',
+                            'с' : '~',
+                            'т' : '-',
+                            'у': '5',
+                            'ф': 'j',
+                            'х': '$',
+                            'ц': '*',
+                            'ч': '&',
+                            'ш': 'D',
+                            'щ': 'Q',
+                            'ъ': '3',
+                            'ы': 'N',
+                            'ь': '6',
+                            'э': '(',
+                            'ю': '9',
+                            'я': '7',
+                            ' ': ' '
+        }
+
+    
+
+
+
+        items = document.select('.item')
+
+        def change_text(event):
+            fav = document.select('input')[0].value
+            msg = document.select('input')[1].value
+            if fav == '0':
+                items[0].text = code_string(msg, dict_with_coding)
+            elif fav == '1':
+                items[0].text = decode(msg, dict_with_coding)
+        
+        document['btn'].bind('click',change_text)
+
+        
+
+
+    </script>
+
+
+
+</body>
+
+</html>
+<style>
+    /* Указываем box sizing */
+    *,
+    *::before,
+    *::after {
+    box-sizing: border-box;
+    }
+
+    /* Убираем внутренние отступы */
+    ul[class],
+    ol[class] {
+    padding: 0;
+    }
+
+    /* Убираем внешние отступы */
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    ul[class],
+    ol[class],
+    li,
+    figure,
+    figcaption,
+    blockquote,
+    dl,
+    dd {
+    margin: 0;
+    }
+
+    /* Выставляем основные настройки по-умолчанию для body */
+    body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    opacity: 1;
+    }
+
+    /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+    ul[class],
+    ol[class] {
+    list-style: none;
+    }
+
+    /* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+    a:not([class]) {
+    text-decoration-skip-ink: auto;
+    }
+
+    /* Упрощаем работу с изображениями */
+    img {
+    max-width: 100%;
+    display: block;
+    }
+
+    /* Указываем понятную периодичность в потоке данных у article*/
+    article > * + * {
+    margin-top: 1em;
+    }
+
+    /* Наследуем шрифты для инпутов и кнопок */
+    input,
+    button,
+    textarea,
+    select {
+    font: inherit;
+    }
+    body{
+        
+      
+        justify-content: center;
+        background-color: rgb(55, 78, 78);
+       
+        display: flex;
+
+
+    }
+    .inner{
+        background-color: brown;
+        width: 40%;
+        justify-content: center;
+        top:40%;
+      
+        position: absolute;
+        padding: 10px;
+
+
+    }
+    .container{
+        display: flex;
+        justify-content: center space-between;
+        text-align: center;
+        margin: 10px 0 40px;
+    }
+    .item{
+        padding:20px; 
+        border: 1px solid black;
+        text-align: center;
+        background-color: aliceblue;
+
+        
+    }
+    button{
+        padding:10px 20px;
+        display: flex;
+    }
+    @media screen and (max-width:500px) {
+        .inner{
+        background-color: rgb(59, 45, 45);
+        width: 40%;
+        justify-content: center;
+        top:40%;
+      
+        position: absolute;
+        padding: 10px;
+
+
+        }
+        
+    }
+
+</style>
+
