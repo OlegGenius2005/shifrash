@@ -11,21 +11,23 @@
 </head>
 
 <body onload="brython()">
+
     <div class="inner">
-         <div class ="item">
-        block 1
-        </div>
-        <button id="btn">1</button>
-        <div id="input" class ="container">
-            <input type="text" />
-        </div>
-        <div id="input" class ="container">
-            <input type="text" />
-        </div>
+
+         <div class ="item">Ваше сообщение</div>
+
+        <button id="btn">Зашифровать сообщение</button>
+
+        <button id="btn-1">Расшифровать сообщение</button>
+
+        <div id="input" class ="container"><input type="text" /></div>
+        
+        
     </div>
     
    
     <script type="text/python">
+        
         from browser import *
 
         def decode(nums, coding_dict):
@@ -93,16 +95,33 @@
 
         items = document.select('.item')
 
-        def change_text(event):
-            fav = document.select('input')[0].value
-            msg = document.select('input')[1].value
-            if fav == '0':
-                items[0].text = code_string(msg, dict_with_coding)
-            elif fav == '1':
-                items[0].text = decode(msg, dict_with_coding)
-        
-        document['btn'].bind('click',change_text)
+        def change_text_0(event):
+            
+            msg = document.select('input')[0].value
+           
+            items[0].text = code_string(msg, dict_with_coding)
 
+            document.select('input')[0].value = ''
+        
+        def change_text_1(event):
+            
+            msg = document.select('input')[0].value
+           
+            items[0].text = decode(msg, dict_with_coding)
+
+            document.select('input')[0].value = ''
+            
+                
+        
+        document['btn'].bind('click',change_text_0)
+        document['btn-1'].bind('click',change_text_1)
+
+
+
+        
+
+
+    
         
 
 
@@ -186,31 +205,42 @@
     font: inherit;
     }
     body{
-        
-      
+        position: static;
+        text-align: center;
         justify-content: center;
-        background-color: rgb(55, 78, 78);
+        background-color: rgb(41, 205, 205);
        
-        display: flex;
+     
 
 
     }
     .inner{
-        background-color: brown;
+        background-color: rgb(38, 132, 127);
         width: 40%;
-        justify-content: center;
-        top:40%;
-      
-        position: absolute;
-        padding: 10px;
+        margin: auto ; 
+        position: relative;
+        border-radius: 15px;
+        top:30%;
+        
+       
+        padding: 3%;
 
 
     }
     .container{
-        display: flex;
+       
         justify-content: center space-between;
         text-align: center;
         margin: 10px 0 40px;
+        width: 100%;
+        
+        
+    }
+    input{
+        width: 98%;
+        border-radius: 20px;
+        border: 0;
+        padding: 1% 0 20% 0;
     }
     .item{
         padding:20px; 
@@ -222,20 +252,22 @@
     }
     button{
         padding:10px 20px;
-        display: flex;
+        border-radius: 20px;
+        border: 0;
+        margin: 1%;
+        box-shadow: 0 3px 6px 0 black;
+        transition: all 0.5s;
+        color: aliceblue;
+        background-color: rgba(5, 3, 3, 0.379);
+       
+    }
+    button:hover{
+        box-shadow: 0 6px 10px 0 black;
+        background-color: rgba(5, 3, 3, 0.815);
+
     }
     @media screen and (max-width:500px) {
-        .inner{
-        background-color: rgb(59, 45, 45);
-        width: 40%;
-        justify-content: center;
-        top:40%;
-      
-        position: absolute;
-        padding: 10px;
-
-
-        }
+        
         
     }
 
