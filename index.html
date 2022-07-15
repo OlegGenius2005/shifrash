@@ -11,6 +11,13 @@
 </head>
 
 <body onload="brython()">
+    
+    <div class="h1">
+        <h1>Shifrush!</h1>
+    
+    
+    </div>
+    
 
     <div class="inner">
 
@@ -205,7 +212,7 @@
     font: inherit;
     }
     body{
-        position: static;
+        
         text-align: center;
         justify-content: center;
         background-color: rgb(41, 205, 205);
@@ -220,7 +227,7 @@
         margin: auto ; 
         position: relative;
         border-radius: 15px;
-        top:30%;
+        top:40%;
         
        
         padding: 3%;
@@ -241,15 +248,28 @@
         border-radius: 20px;
         border: 0;
         padding: 1% 0 20% 0;
+        text-align: center;
     }
+    input:focus {
+        color: #212529;
+        background-color: #fff;
+        border-color: #bdbdbd;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.25);
+        }
+    input::placeholder {
+        color: #212529;
+        opacity: 0.4;
+    }    
     .item{
         padding:20px; 
-        border: 1px solid black;
+        
         text-align: center;
         background-color: aliceblue;
 
         
     }
+
     button{
         padding:10px 20px;
         border-radius: 20px;
@@ -266,9 +286,26 @@
         background-color: rgba(5, 3, 3, 0.815);
 
     }
+    .h1{
+        background-color:rgba(255, 255, 255, 0.767); 
+        width: 50%;
+        margin:0 25% 0 25%;
+        border-radius: 30px;
+        position: absolute;
+        margin-top: 5%;
+        
+       
+    }
+    h1{
+        color: rgb(41, 205, 205);
+        font-size: 5em;
+        
+        
+      
+    }
     @media only screen and (max-width:480px), only screen and (max-device-width: 480px) {
         body{
-            background-color: aliceblue;
+            background-color: rgb(41, 205, 205);
             font-size: 1.5em;
            
 
@@ -276,6 +313,8 @@
         .inner{
             width: 700px;
             height: 600px;
+            margin-top: -70%;
+           
         }
         button{
             padding:15px 25px;
@@ -289,6 +328,20 @@
           
 
         
+        }
+        .h1{
+            width: 50%;
+            margin: auto;
+            margin-top: 40%;
+            width: 700px;
+            position: relative;
+        }
+        h1{
+            color: rgb(41, 205, 205);
+            font-size: 5em;
+            top: 1%;
+            
+      
         }
         
     }
