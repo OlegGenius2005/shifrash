@@ -16,9 +16,9 @@
 
          <div class ="item">Ваше сообщение</div>
 
-        <button id="btn">Зашифровать сообщение</button>
+        <button id="btn">Зашифровать<br> сообщение</button>
 
-        <button id="btn-1">Расшифровать сообщение</button>
+        <button id="btn-1">Расшифровать<br> сообщение</button>
 
         <div id="input" class ="container"><input type="text" /></div>
         
@@ -266,8 +266,30 @@
         background-color: rgba(5, 3, 3, 0.815);
 
     }
-    @media screen and (max-width:500px) {
+    @media only screen and (max-width:480px), only screen and (max-device-width: 480px) {
+        body{
+            background-color: aliceblue;
+            font-size: 1.5em;
+           
+
+        }
+        .inner{
+            width: 700px;
+            height: 600px;
+        }
+        button{
+            padding:15px 25px;
+            margin: 7% 4% ;
+          
         
+        }
+        .item{
+            padding:20px; 
+            height: 20%;
+          
+
+        
+        }
         
     }
 
